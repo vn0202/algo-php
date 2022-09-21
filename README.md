@@ -328,3 +328,69 @@ Thay thế một số lỗi lớn với các ngoại lệ có thể dễ dàng x
 $country = $session ?->user ?->getAddress()->country;
 ```
 5. Biểu thức Match: có chức năng như switch case
+
+
+## Clean code
+
+### Variables 
+
+1. Sử dụng tên biến có ý nghĩa và có thể phát âm 
+2. Sử dụng cùng từ vựng cho 1 loại biến 
+3. Sử dụng tên có khả năng tìm kiếm 
+4. sử dụng các biến giải thích 
+5. Tránh các lưới quá sâu và trả về quá sớm: Qúa nhiều ìf-else sẽ làm code khó theo dõi. Rõ ràng tốt hơn ngầm.
+6. Đừng để người đọc phải dịch nghĩa tên biến của bạn. Rõ ràng thì tốt hơn ngầm định 
+7. Không thêm các ngữ cảnh không cần thiết. Nếu tên lớp/đối tượng của bạn đã nói lên điều gì đó, đừng nhắc lại nó trong tên biến của bạn 
+
+### Comparision 
+
+1. sử dụng === 
+2. null coalescing ??
+
+### Function 
+
+1. Sử dụng các tham số mặc định thay vì sử dụng điều kiện kiểm tra. 
+2. Tham số của hàm ( 2 hoặc ít hơn)
+3. Tên của hàm nên nói nó làm gì
+4. Các hàm chỉ nên là 1 cấp độ của trừu tượng. Khi các hàm có nhiều hơn 1 cấp độ trừu tượng, các hàm của bạn sẽ phải làm quá nhiều. Việc chia nhỏ các giúp cho việc tái sử dụng và kiểm tra dễ hơn 
+5. Không sử dụng cờ như 1 tham số của hàm. 
+6. Tránh các hiệu ứng phụ
+7. Không ghi vào các hàm toàn cục 
+8. kHông sử dụng mô hình Singleton.
+9. Đóng gói các điều kiện
+10. Tránh điều kiện phủ định 
+11. Tránh các điều kiện 
+12. Tránh kiểm tra kiểu 
+13. Xóa mã chết 
+
+
+### Object and data-structer
+
+1. Sử dụng bao đóng đối tượng 
+2. Tạo các đối tượng có thành viên riêng tư/ bảo vệ.
+
+
+### Class 
+
+1. Thích bố cục hơn kế thừa
+2.  Tránh giao diện trôi chảy. 
+3. Nên sử dụng `final` bất kể khi nào có thể 
+   1. Nó ngăn cản các chuỗi kế thừa không kiểm soát 
+   2. Khuyến khích bố cục
+   3. Khuyến khích quy tắc 1 trách nhiệm đơn 
+   4. Khuyến khích các nhà phát triển sử dụng các phương thức public thay vì mở rộng lớp để truy cập vào các thuộc tính bảo vệ 
+   5. Cho phép bạn thay đổi code mà không phá võ ứng dụng mà nó sử dụng lớp đó.
+
+### SOLID: 
+Viết tắt của 5 nguyên tắc cơ bản trong thiết kế và lập trình hướng đối tượng. 
+
+1. S : Nguyên tắc 1 trách nhiệm duy nhất : Không bao giờ có nhiều hơn 1 lý do để thay đổi lơp của bạn .
+2. O : quy tắc mở đóng: Cho phép nguời dùng thêm các chức năng mới mà không thay đổi mã hiện tại. 
+3. L: Nguyên tắc thay thế LisKov : nếu bạn có lớp cha và lớp con, thì lớp cơ sở và lớp con có thể được sử dụng thay thế cho nhau mà không nhận được kết quả sai.
+3. I: Interface segregation Principle: Khách hàng không phải bắt buộc phụ thuộc vào các giao diện mà họ không sử dụng. 
+4. D: Dependency Inversion Principle : Nguyên tắc đảo ngược sự phụ thuộc : 
+  - Modules cấp cao không nên phụ thuộc vào module cấp thấp. Cả hai nên phụ thuộc vào trừu tượng. 
+  - Trừu tượng không nên phụ thuộc vào chi tiết. Chi tiết nên phụ thuộc vào trừu tượng. 
+
+### DRY ( Don't repeat yourself )
+Cố gắng tránh các mã trùng lặp. Điều này sẽ có nghĩa là có nhiều hơn 1 chỗ bạn cần thay đổi khi bạn cần thay đổi một số logic. 

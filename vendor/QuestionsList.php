@@ -11,10 +11,10 @@ class QuestionsList{
         $contents = file_get_contents($path);
         $arrayQuestions = explode("######",$contents);
         array_shift($arrayQuestions);
-        foreach ($arrayQuestions as $question)
+        foreach ($arrayQuestions as $questions)
         {
-               $question = explode("####",$question);
-               $this->listsQuestion[] = new Question($question[0],$question[1]);
+              [$question,$anser]  = explode("####",$questions);
+               $this->listsQuestion[] = new Question($question,$anser);
 
         }
         return $this;
